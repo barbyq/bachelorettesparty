@@ -1,0 +1,33 @@
+<script src="/javascript/royalslider/jquery.royalslider.min.js"></script>
+<script src="/javascript/instafeed.min.js"></script>
+<script src="/javascript/script.js"></script>
+<div class="wrapper">
+	<div class="royalSlider rsDefault">
+		{{#each categorias}}
+			{{#if imagen}}
+			<div class="rsContent">
+	        	<a href="/categorias/{{categoria}}">
+	        		<img src="/images/{{imagen}}">
+	        	</a>
+	    	</div>
+	    	{{/if}}
+    	{{/each}}
+	</div>
+
+	
+	<div class="insta">
+		<h1>INSTAGRAM</h1>
+		<div class="container">
+			<section>
+				<h2>#bachelorettesmx</h2>
+				<div class="hashtag instagram_slider rsDefault"></div>
+			</section>
+			
+			<section>
+				<h2>@bachelorettespartymx</h2>
+				<div class="instagram instagram_slider rsDefault"></div>
+			</section>
+		</div>
+		<br class="clear">
+	</div><!-- insta -->
+</div>

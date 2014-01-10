@@ -1,0 +1,98 @@
+<html>
+<head>
+	<title>Bachelorettes Party</title>
+	<link rel="stylesheet" href="/stylesheets/reset.css">
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Oswald'>
+	<link rel="stylesheet" href="/javascript/royalslider/royalslider.css">
+	<link rel="stylesheet" href="/javascript/royalslider/skins/default/rs-default.css">
+	<link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+<body>
+	<script src="/javascript/royalslider/jquery-1.8.3.min.js"></script>
+	<header class="wrapper">
+		<a href="/">
+			<img src="/images/logo.png" class="logo">
+		</a>
+
+		
+		<section class="social">
+			{{#if is_en}}
+				<a href="/es" class="lang"><img src="/images/es.png"></a>
+			{{else}}
+				<a href="/en" class="lang"><img src="/images/en.png"></a>
+			{{/if}}
+			<a href="https://www.facebook.com/bachelorettesgitfs" target="_blank"><img src="/images/fb.png"></a>
+			<a href="#contacto"><img src="/images/email.png"></a>
+			<a href="http://instagram.com/bachelorettespartymx" target="_blank"><img src="/images/insta.png"></a>
+			<a href="http://www.pinterest.com/giftsandpartysu/pins/" target="_blank"><img src="/images/pin.png"></a>
+		</section>
+		<br class="clear">
+	</header>
+	<div class="main wrapper">
+	<nav class="categorias">
+		<h1>{{#if is_en}}CATEGORIES{{else}}CATEGORÍAS{{/if}}</h1>
+		<ul>
+			{{#each categorias}}
+				<li><a href="/categorias/{{categoria}}">{{nombre}}</a></li>
+			{{/each}}
+		</ul>
+	</nav>
+	{{{body}}}
+	</div>
+	<footer>
+		<section class="wrapper">
+			<div id="contacto">
+				<h1>CONTACT{{#unless is_en}}O{{/unless}}</h1>
+				<form name="contacto" method="post" action="contacto">
+					<table>
+						<tr>
+							<td>{{#if is_en}}Name{{else}}Nombre{{/if}}:</td>
+							<td> <input type="text" name="nombre" placeholder="{{#if is_en}}First Name{{else}}Nombre {{/if}}"></td>
+						</tr>
+						<tr>
+							<td>{{#if is_en}}Last Name{{else}}Apellido{{/if}}:</td>
+							<td> <input type="text" name="apellido" placeholder="{{#if is_en}}Last Name{{else}}Apellido{{/if}}"></td>
+						</tr>
+						<tr>
+							<td>Email:</td>
+							<td><input type="text" name="email" placeholder="user@test.com"></td>
+						</tr>
+						<tr>
+							<td>{{#if is_en}}Comments, suggestions, questions{{else}}Sugerencias, dudas, comentarios{{/if}}:</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<textarea name="mensaje" rows="8" cols="53" placeholder="{{#if is_en}}Message{{else}}Mensaje{{/if}}"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="submit" value="{{#if is_en}}Send{{else}}Enviar{{/if}}" id="enviar_mensaje">
+							</td>
+						</tr>
+
+					</table>
+				</form>
+				
+				<div class="info">
+					<h2>Bachelorettes Party</h2>
+					<h3><a href="mailto:info@bachelorettesparty.com.mx"> info@bachelorettesparty.com.mx</a></h3>
+				</div>
+
+				<br class="clear">
+				<nav class="categorias mini">
+					<ul>
+						<li>©2013 Bachelorettes Gifts and Party Supplies - </li>
+						<li>{{#if is_en}}CATEGORIES{{else}}CATEGORÍAS{{/if}}:</li>
+						{{#each categorias}}
+							<li><a href="/categorias/{{categoria}}">{{nombre}}</a></li>
+						{{/each}}
+					</ul>
+				</nav>
+			</div><!-- contacto -->
+		</section>
+	</footer>
+	<!-- LIVERELOAD REMOVE -->
+	<script src="//localhost:35729/livereload.js"></script>
+</body>
+</html>
