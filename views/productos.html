@@ -1,8 +1,9 @@
 <div class="productos">
 <h1>{{titulo}}</h1>
-<ul>
+<ul id="container">
 	{{#each productos}}
-		<li><img src="/images/productos/{{../categoria_id}}/{{image}}"><br><span>{{#if is_en}}{{name}}{{else}}{{nombre}}{{/if}}</span></li>
+		<li class="item"><img src="/images/productos/{{../categoria_id}}/{{image}}"><br><span>{{#if ../is_en}}{{name}}{{else}}{{nombre}}{{/if}}</span></li>
 	{{/each}}
 </ul>
 </div>
+
