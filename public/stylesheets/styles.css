@@ -185,7 +185,7 @@ nav.categorias {
     .productos ul li {
       margin-top: 20px;
       padding-top: 10px;
-      padding-bottom: 25px;
+      padding-bottom: 10px;
       padding-left: 15px;
       padding-right: 15px;
       display: inline-block;
@@ -198,6 +198,10 @@ nav.categorias {
         width: 186px; }
       .productos ul li:first-child {
         border-left: none; }
+      .productos ul li .price {
+        color: #9e9e9a;
+        font-size: 18px;
+        line-height: 30px; }
   .productos h1 {
     text-transform: uppercase;
     font-size: 28px; }

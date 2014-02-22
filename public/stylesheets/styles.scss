@@ -238,7 +238,7 @@ nav.categorias{
 		li{
 			margin-top: 20px;
 			padding-top: 10px;
-			padding-bottom: 25px;
+			padding-bottom: 10px;
 			padding-left: 15px;
 			padding-right: 15px;
 			display: inline-block;
@@ -252,6 +252,11 @@ nav.categorias{
 			border-left: 1px dashed $text_color;
 			&:first-child{
 				border-left: none;
+			}
+			.price{
+				color: lighten($text_color, 20%);
+				font-size: 18px;
+				line-height: 30px;
 			}
 		}
 

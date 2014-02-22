@@ -2,7 +2,7 @@
 <h1>{{titulo}}</h1>
 <ul id="container">
 	{{#each productos}}
-		<li class="item"><img src="/images/productos/{{../categoria_id}}/{{image}}"><br><span>{{#if ../is_en}}{{name}}{{else}}{{nombre}}{{/if}}</span></li>
+		<li class="item"><img src="/images/productos/{{../categoria_id}}/{{image}}"><br><span>{{#if ../is_en}}{{name}}{{else}}{{nombre}}{{/if}}</span><br><span class="price">{{#if price}}{{price}}{{/if}}</span></li>
 	{{/each}}
 </ul>
 </div>

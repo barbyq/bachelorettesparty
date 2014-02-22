@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 	var feed = new Instafeed({
 		clientId: '099bce4b6a55418ab65643eee719b1c5',
 		get: 'tagged',
-		tagName: 'bachelorette',
+		tagName: 'bachelorettesmx',
 		sortBy: 'random',
 		limit: 15,
 		mock: true,
