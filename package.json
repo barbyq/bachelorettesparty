@@ -6,7 +6,8 @@
     "express": "3.4.4",
     "hbs": "*",
     "mongodb": "*",
-    "monk": "*"
+    "monk": "*", 
+    "nodemailer":"*"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

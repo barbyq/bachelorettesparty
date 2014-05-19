@@ -1,11 +1,12 @@
 var Categorias = require('./categorias');
 var Utils = require('./utils');
+var nodemailer = require("nodemailer");
 
 exports.get_index = function(db) {
 	return function(req, res) {
 		var is_en = Utils.get_lang(req);
 		options = {
-			db : db,
+			db: db,
 			is_en: is_en,
 			res: res
 		};
@@ -13,7 +14,7 @@ exports.get_index = function(db) {
 	};
 };
 
-exports.render_index = function(options){
+exports.render_index = function(options) {
 	var is_en = options.is_en,
 		array = options.array,
 		res = options.res;
@@ -27,4 +28,41 @@ exports.render_index = function(options){
 exports.set_lang = function(req, res) {
 	req.session.lang = req.params.lang;
 	res.redirect('/');
+};
+
+exports.send_mail = function(req, res) {
+	var first_name = req.params.nombre,
+		last_name = req.params.nombre,
+		email = req.params.email,
+		body = req.params.mensaje;
+
+	// create reusable transport method (opens pool of SMTP connections)
+	var smtpTransport = nodemailer.createTransport("SMTP", {
+		service: "Gmail",
+		auth: {
+			user: "info@bachelorettesparty.com.mx",
+			pass: "abril1990"
+		}
+	});
+
+	// setup e-mail data with unicode symbols
+	var mailOptions = {
+		from: first_name + ' ' + last_name + ' <' + email + '>', // sender address
+		to: "info@bachelorettesparty.com.mx", // list of receivers
+		subject: "Nuevo comentario", // Subject line
+		text: body // plaintext body
+	};
+
+	// send mail with defined transport object
+	smtpTransport.sendMail(mailOptions, function(error, response) {
+		if (error) {
+			console.log(error);
+		} else {
+			console.log("Message sent: " + response.message);
+		}
+
+		// if you don't want to use this transport object anymore, uncomment following line
+		smtpTransport.close(); // shut down the connection pool, no more messages
+	});
+
 };
