@@ -30,7 +30,7 @@ app.use(express.session({secret: 'bachelorettepartymx'}));
 
 /*Routes*/
 app.get('/', index.get_index(db));
-app.get('/contacto', index.send_mail);
+app.post('/contacto', index.send_mail);
 app.get('/categorias/:categoria', categorias.get_by_categoria(db));
 
 /*Lang*/

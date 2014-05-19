@@ -31,10 +31,10 @@ exports.set_lang = function(req, res) {
 };
 
 exports.send_mail = function(req, res) {
-	var first_name = req.params.nombre,
-		last_name = req.params.nombre,
-		email = req.params.email,
-		body = req.params.mensaje;
+	var first_name = req.body.nombre,
+		last_name = req.body.apellido,
+		email = req.body.email,
+		body = req.body.mensaje;
 
 	// create reusable transport method (opens pool of SMTP connections)
 	var smtpTransport = nodemailer.createTransport("SMTP", {
@@ -47,10 +47,11 @@ exports.send_mail = function(req, res) {
 
 	// setup e-mail data with unicode symbols
 	var mailOptions = {
-		from: first_name + ' ' + last_name + ' <' + email + '>', // sender address
+		from: first_name + ' ' + last_name + '<' + email + '>', // sender address
 		to: "info@bachelorettesparty.com.mx", // list of receivers
 		subject: "Nuevo comentario", // Subject line
-		text: body // plaintext body
+		text: body + 'Sent from: ' + first_name + ' ' + last_name+ ', email: ' + email,
+		html: body + '<br><br>Sent from: ' + first_name + ' ' + last_name+ ', email: ' + email
 	};
 
 	// send mail with defined transport object
@@ -59,8 +60,8 @@ exports.send_mail = function(req, res) {
 			console.log(error);
 		} else {
 			console.log("Message sent: " + response.message);
+			res.send('success');
 		}
-
 		// if you don't want to use this transport object anymore, uncomment following line
 		smtpTransport.close(); // shut down the connection pool, no more messages
 	});
